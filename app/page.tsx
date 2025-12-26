@@ -1,6 +1,8 @@
 "use client";
-import IssueTracker from "./components/IssueTracker";
+import CountUp from "./components/CountUp";
+import IssueTracker from "./components/IssueTicker";
 import Navbar from "./components/Navbar";
+import { MOCK_STATS } from "./constants/constant";
 
 export default function Home() {
   return (
@@ -16,6 +18,30 @@ export default function Home() {
                 Welcome in,
                 <span className="font-medium text-yellow-500">Dev</span>
               </h1>
+              <p className="text-stone-500">
+                Here's what's happening in the open source world today.
+              </p>
+            </div>
+
+            <div className="flex gap-8 px-8 py-4 bg-white rounded-3xl border border-stone-100 shadow-sm transition-colors">
+              <div className="text-center">
+                <div className="text-xs text-stone-400  uppercase font-bold tracking-wider mb-1">
+                Tracked  Repos
+                </div>
+                <div className="text-2xl font-bold text-stone-800 ">
+                  <CountUp end={MOCK_STATS.totalRepos} />
+                </div>
+              </div>
+
+              <div className="w-px bg-stone-100 h-10 self-center"></div>
+              <div className="text-center">
+                <div className="text-xs text-stone-400 uppercase font-bold tracking-wider mb-1">
+                Tracked Issues
+                </div>
+                <div className="text-2xl font-bold text-stone-800 ">
+                  <CountUp end={MOCK_STATS.totalIssues} />
+                </div>
+              </div>
             </div>
           </div>
         </div>

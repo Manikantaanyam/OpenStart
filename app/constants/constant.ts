@@ -1,5 +1,5 @@
 import { Eye, LayoutGrid, List } from "lucide-react";
-import { Route } from "../types/type";
+import { Issue, Route } from "../types/type";
 
 export const ROUTES: Route[] = [
   {
@@ -25,8 +25,6 @@ export const ROUTES: Route[] = [
 export const MOCK_STATS = {
   totalRepos: 142,
   totalIssues: 856,
-  resolvedThisWeek: 45,
-  activeContributors: 320,
 };
 
 export const MOCK_ISSUES: Issue[] = [
