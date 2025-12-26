@@ -18,3 +18,14 @@ export interface Issue {
   avatarUrl: string; // Author avatar
   repoLogoUrl: string;
 }
+
+export type ProjectResult = {
+  id: Number;
+  display_name: String;
+  full_name: String;
+  description: String;
+  avatar_url: String;
+  stars: Number;
+  techStack: String[];
+  active: Date;
+};

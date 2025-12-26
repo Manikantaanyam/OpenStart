@@ -1,25 +1,21 @@
-import React from "react";
-import { Star, GitMerge, ExternalLink, Eye, EyeOff } from "lucide-react";
+import { Star, GitMerge, ExternalLink, Eye } from "lucide-react";
 
 const ProjectCard = ({ repo }) => {
   return (
-    <div className="bg-white  rounded-[2rem] p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100  group relative">
+    <div className="bg-white  rounded-4xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100  group relative">
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl overflow-hidden bg-stone-50  border border-stone-100  p-1">
             <img
-              src={repo.logoUrl}
-              alt={repo.name}
+              src={repo.avatar_url}
+              alt={repo.display_name}
               className="w-full h-full object-cover rounded-xl"
             />
           </div>
           <div>
             <h3 className="font-bold text-xl text-stone-900  group-hover:text-yellow-600 transition-colors">
-              {repo.name}
+              {repo.display_name}
             </h3>
-            <span className="text-xs font-medium text-stone-400  bg-stone-100  px-2 py-0.5 rounded-full">
-              {repo.language}
-            </span>
           </div>
         </div>
 
@@ -37,9 +33,9 @@ const ProjectCard = ({ repo }) => {
         {repo.description}
       </p>
 
-      <div className="flex items-center justify-between">
-        <div className="flex gap-2">
-          {repo.tags.map((tag) => (
+      <div className="flex  items-center justify-between">
+        <div className="flex flex-wrap gap-2 h-full">
+          {repo.techStack.map((tag) => (
             <span
               key={tag}
               className="text-[10px] uppercase font-bold tracking-wider text-stone-400  bg-stone-50 px-2 py-1 rounded-lg border border-stone-100 "
@@ -59,7 +55,7 @@ const ProjectCard = ({ repo }) => {
         </div>
         <div className="flex items-center gap-1.5 text-stone-400 ">
           <GitMerge className="w-4 h-4" />
-          <span className="text-sm">{repo.openIssuesCount} issues</span>
+          <span className="text-sm">12 issues</span>
         </div>
       </div>
     </div>

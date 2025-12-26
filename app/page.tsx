@@ -1,18 +1,28 @@
 "use client";
-import { Heart, Plus, Quote, Sparkles } from "lucide-react";
+import { Heart, Plus, Quote } from "lucide-react";
 import CountUp from "./components/CountUp";
 import IssueTracker from "./components/IssueTicker";
 import Navbar from "./components/Navbar";
 import ProjectCard from "./components/ProjectCard";
-import { MOCK_REPOS, MOCK_STATS } from "./constants/constant";
-import { useState } from "react";
+import {  MOCK_STATS } from "./constants/constant";
+
+import { useEffect, useState } from "react";
+import { getProjects } from "./actions/projects";
+import { ProjectResult } from "./types/type";
 
 export default function Home() {
   const [repoUrl, setRepoUrl] = useState("");
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analysisResult, setAnalysisResult] = useState<"none" | "success">(
-    "none"
-  );
+
+  const [projects, setProjects] = useState<ProjectResult[]>([]);
+
+  useEffect(() => {
+    async function loadProjects() {
+      const data = await getProjects();
+      setProjects(data);
+    }
+
+    loadProjects();
+  }, []);
 
   return (
     <div>
@@ -56,7 +66,6 @@ export default function Home() {
 
           {/* Main Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
             {/* Left column (2/3) - Projects */}
             <div className="lg:col-span-2 space-y-6">
               <div className="space-y-4">
@@ -69,7 +78,7 @@ export default function Home() {
                   </button>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {MOCK_REPOS.map((repo) => (
+                  {projects.map((repo) => (
                     <ProjectCard key={repo.id} repo={repo} />
                   ))}
                 </div>
@@ -78,7 +87,6 @@ export default function Home() {
 
             {/* Right column (1/3) */}
             <div className="space-y-6">
-              
               {/* Add Repo Card */}
               <div className="bg-[#1A1A1A]  rounded-[2.5rem] p-8 text-white relative overflow-hidden shadow-xl min-h-[300px] flex flex-col justify-between border border-transparent ">
                 <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-400 rounded-full blur-[80px] opacity-10 -mr-10 -mt-10"></div>
