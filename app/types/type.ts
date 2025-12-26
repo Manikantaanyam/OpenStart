@@ -6,3 +6,15 @@ export interface Route {
   label: String;
   icon: LucideIcon;
 }
+
+export interface Issue {
+  id: string;
+  title: string;
+  repoName: string;
+  difficulty: "Beginner" | "Intermediate";
+  type: "Bug" | "Feature" | "Documentation" | "UI/UX";
+  url: string;
+  createdAt: string;
+  avatarUrl: string; // Author avatar
+  repoLogoUrl: string;
+}

@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} antialiased bg-[#FDFBF7]`}>
+      <body
+        className={`${outfit.variable} antialiased min-h-screen bg-[#FDFBF7] text-stone-900 font-sans selection:bg-yellow-200 selection:text-yellow-900 transition-colors`}
+      >
         {children}
       </body>
     </html>
