@@ -4,7 +4,7 @@ import CountUp from "./components/CountUp";
 import IssueTracker from "./components/IssueTicker";
 import Navbar from "./components/Navbar";
 import ProjectCard from "./components/ProjectCard";
-import {  MOCK_STATS } from "./constants/constant";
+import { MOCK_STATS } from "./constants/constant";
 
 import { useEffect, useState } from "react";
 import { getProjects } from "./actions/projects";
@@ -14,6 +14,8 @@ export default function Home() {
   const [repoUrl, setRepoUrl] = useState("");
 
   const [projects, setProjects] = useState<ProjectResult[]>([]);
+  console.log("pro", projects);
+  console.log("pro", projects.length);
 
   useEffect(() => {
     async function loadProjects() {
@@ -48,7 +50,7 @@ export default function Home() {
                   Tracked Repos
                 </div>
                 <div className="text-2xl font-bold text-stone-800 ">
-                  <CountUp end={MOCK_STATS.totalRepos} />
+                  <CountUp end={projects.length} />
                 </div>
               </div>
 

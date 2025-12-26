@@ -35,7 +35,7 @@ export default function CountUp({
 
     animationFrame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  }, [end]);
 
   return <span className={className}>{count.toLocaleString()}</span>;
 }

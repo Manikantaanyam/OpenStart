@@ -23,9 +23,15 @@ const ProjectCard = ({ repo }) => {
           <button>
             <Eye className="w-4 h-4" />
           </button>
-          <div className="w-10 h-10 rounded-full border border-stone-100 flex items-center justify-center hover:bg-yellow-400 hover:border-yellow-400 transition-all cursor-pointer group-hover:text-stone-900 text-stone-400 ">
+
+          <a
+            href={`https://github.com/${repo.full_name}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full border border-stone-100 flex items-center justify-center hover:bg-yellow-400 hover:border-yellow-400 transition-all cursor-pointer group-hover:text-stone-900 text-stone-400"
+          >
             <ExternalLink className="w-4 h-4" />
-          </div>
+          </a>
         </div>
       </div>
 
