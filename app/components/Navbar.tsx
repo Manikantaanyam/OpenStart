@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { ROUTES } from "../constants/constant";
 import { usePathname } from "next/navigation";

@@ -40,11 +40,11 @@ const ProjectCard = ({ repo }) => {
       </p>
 
       <div className="flex  items-center justify-between">
-        <div className="flex flex-wrap gap-2 h-full">
+        <div className="flex items-center gap-2 overflow-x-auto  pb-1">
           {repo.techStack.map((tag) => (
             <span
               key={tag}
-              className="text-[10px] uppercase font-bold tracking-wider text-stone-400  bg-stone-50 px-2 py-1 rounded-lg border border-stone-100 "
+              className="whitespace-nowrap text-[10px] uppercase font-bold tracking-wider text-stone-400 bg-stone-50 px-2 py-1 rounded-lg border border-stone-100"
             >
               {tag}
             </span>

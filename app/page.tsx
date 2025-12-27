@@ -1,8 +1,6 @@
 "use client";
 import { Heart, Plus, Quote } from "lucide-react";
 import CountUp from "./components/CountUp";
-import IssueTracker from "./components/IssueTicker";
-import Navbar from "./components/Navbar";
 import ProjectCard from "./components/ProjectCard";
 import { MOCK_STATS } from "./constants/constant";
 
@@ -28,8 +26,6 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
-      <IssueTracker />
       <div className="duration-300 max-w-7xl mx-auto px-6 py-6">
         <div className="pb-20 space-y-8 animate-in fade-in duration-500">
           {/* Header Section */}
@@ -75,12 +71,15 @@ export default function Home() {
                   <h3 className="text-xl font-medium text-stone-800 ">
                     Popular Projects
                   </h3>
-                  <button className="text-sm text-stone-400 hover:text-stone-900  transition-colors">
+                  <a
+                    href="/projects"
+                    className="text-sm text-stone-400 hover:text-stone-900  transition-colors"
+                  >
                     View all
-                  </button>
+                  </a>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {projects.map((repo) => (
+                  {projects.slice(0, 4).map((repo) => (
                     <ProjectCard key={repo.id} repo={repo} />
                   ))}
                 </div>
@@ -143,8 +142,8 @@ export default function Home() {
                     Why Contribute?
                   </h3>
                   <p className="text-stone-600  text-sm italic leading-relaxed">
-                    "The power of Open Source is the power of the people. The
-                    people rule."
+                    "Your code might be the missing piece that helps a
+                    non-profit, a student, or a fellow developer succeed."
                   </p>
                   <div className="mt-4 pt-4 border-t border-stone-200 ">
                     <p className="text-xs text-stone-500  font-medium">

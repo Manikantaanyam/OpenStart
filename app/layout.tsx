@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import IssueTracker from "./components/IssueTicker";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -23,6 +25,8 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} antialiased min-h-screen bg-[#FDFBF7] text-stone-900 font-sans selection:bg-yellow-200 selection:text-yellow-900 transition-colors`}
       >
+        <Navbar />
+        <IssueTracker />
         {children}
       </body>
     </html>

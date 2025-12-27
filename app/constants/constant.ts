@@ -1,4 +1,4 @@
-import { Eye, LayoutGrid, List } from "lucide-react";
+import { Eye, FolderKanban, LayoutGrid, List } from "lucide-react";
 import { Issue, Route } from "../types/type";
 
 export const ROUTES: Route[] = [
@@ -10,12 +10,18 @@ export const ROUTES: Route[] = [
   },
   {
     id: 2,
+    href: "/projects",
+    label: "Projects",
+    icon: FolderKanban,
+  },
+  {
+    id: 3,
     href: "/issues",
     label: "Issues",
     icon: List,
   },
   {
-    id: 3,
+    id: 4,
     href: "/watchlist",
     label: "Watchlist",
     icon: Eye,

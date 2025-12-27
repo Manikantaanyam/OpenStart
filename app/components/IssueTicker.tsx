@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight, Bell, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { MOCK_ISSUES } from "../constants/constant";
