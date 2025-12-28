@@ -1,6 +1,10 @@
+"use client";
 import { Star, GitMerge, ExternalLink, Eye } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const ProjectCard = ({ repo }) => {
+  const router = useRouter();
+
   return (
     <div className="bg-white  rounded-4xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-stone-100  group relative">
       <div className="flex justify-between items-start mb-4">
@@ -12,10 +16,16 @@ const ProjectCard = ({ repo }) => {
               className="w-full h-full object-cover rounded-xl"
             />
           </div>
-          <div>
-            <h3 className="font-bold text-xl text-stone-900  group-hover:text-yellow-600 transition-colors">
+          <div className="flex flex-col ">
+            <h3
+              onClick={() => router.push(`/projects/issues/${repo.full_name}`)}
+              className="font-bold text-xl text-stone-900 cursor-pointer group-hover:text-yellow-600 transition-colors"
+            >
               {repo.display_name}
             </h3>
+            <span className="text-xs font-light text-stone-400">
+              {repo.full_name}
+            </span>
           </div>
         </div>
 

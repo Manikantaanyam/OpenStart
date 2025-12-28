@@ -1,36 +1,41 @@
 "use client";
 
+import { getIssueforRepo } from "@/app/actions/issues";
+import { CATEGORIES } from "@/app/constants/constant";
 import { ArrowUpRight, Filter, Search } from "lucide-react";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getIssues } from "../actions/issues";
-import { CATEGORIES } from "../constants/constant";
 
 export default function Issues() {
   const [filter, setFilter] = useState("All");
   const [issues, setIssues] = useState([]);
+  const [project, setProject] = useState({});
 
- 
+  const params = useParams();
+  const repo_name = params["name"].join("/");
 
   useEffect(() => {
     async function loadIssues() {
-      const result = await getIssues(filter);
-      setIssues(result);
+      const result = await getIssueforRepo(repo_name, filter);
+      setIssues(result.issues);
+      setProject(result.project);
     }
     loadIssues();
-  }, [filter]);
+  }, [filter, params, repo_name]);
 
   console.log("issues", issues);
 
   return (
     <div className="max-w-7xl mx-auto p-6 pb-20 space-y-8 animate-in fade-in duration-500">
       <div className="flex flex-col md:flex-row justify-between md:items-center gap-6">
-        <div>
-          <h1 className="text-4xl font-light text-stone-900 mb-2">
-            Open <span className="font-medium">Issues</span>
-          </h1>
-          <p className="text-stone-500 ">
-            Curated opportunities for you to contribute.
-          </p>
+        <div className="flex gap-3 items-center ">
+          <img className="w-15 h-15 rounded-xl" src={project.avatar_url} alt={project.display_name} />
+          <div>
+            <h1 className="text-4xl font-light text-stone-900 mb-2">
+              {project.display_name}
+            </h1>
+            <p className="text-stone-500 ">{project.description}</p>
+          </div>
         </div>
 
         <div className="flex gap-3">

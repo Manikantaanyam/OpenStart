@@ -101,3 +101,13 @@ export const MOCK_ISSUES: Issue[] = [
     repoLogoUrl: "https://picsum.photos/seed/typescript/100/100",
   },
 ];
+
+export const CATEGORIES = [
+  "All",
+  "Help Wanted",
+  "Good First Issue",
+  "bug",
+  "documentation",
+  "UI/UX",
+  "refactor",
+];
