@@ -10,7 +10,7 @@ export default function Projects() {
   useEffect(() => {
     async function loadProjects() {
       const data = await getProjects();
-      setProjects(data);
+      setProjects(data.projects);
     }
 
     loadProjects();

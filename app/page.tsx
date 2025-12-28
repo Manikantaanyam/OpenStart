@@ -2,7 +2,6 @@
 import { Heart, Plus, Quote } from "lucide-react";
 import CountUp from "./components/CountUp";
 import ProjectCard from "./components/ProjectCard";
-import { MOCK_STATS } from "./constants/constant";
 
 import { useEffect, useState } from "react";
 import { getProjects } from "./actions/projects";
@@ -12,13 +11,16 @@ export default function Home() {
   const [repoUrl, setRepoUrl] = useState("");
 
   const [projects, setProjects] = useState<ProjectResult[]>([]);
+  const [issueCount, setIssueCount] = useState(0);
   console.log("pro", projects);
   console.log("pro", projects.length);
+  console.log("iiiiiii", issueCount);
 
   useEffect(() => {
     async function loadProjects() {
       const data = await getProjects();
-      setProjects(data);
+      setProjects(data.projects);
+      setIssueCount(data.totalIssues);
     }
 
     loadProjects();
@@ -56,7 +58,7 @@ export default function Home() {
                   Tracked Issues
                 </div>
                 <div className="text-2xl font-bold text-stone-800 ">
-                  <CountUp end={MOCK_STATS.totalIssues} />
+                  <CountUp end={issueCount} />
                 </div>
               </div>
             </div>

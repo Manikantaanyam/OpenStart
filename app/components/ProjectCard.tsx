@@ -71,7 +71,7 @@ const ProjectCard = ({ repo }) => {
         </div>
         <div className="flex items-center gap-1.5 text-stone-400 ">
           <GitMerge className="w-4 h-4" />
-          <span className="text-sm">12 issues</span>
+          <span className="text-sm">{repo._count.issues} issues</span>
         </div>
       </div>
     </div>
