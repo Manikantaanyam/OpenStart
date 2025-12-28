@@ -34,7 +34,7 @@ async function fetchBatch(repoChunk: any) {
   const data = await graphql(query, {
     queryString: searchQuery,
     headers: {
-      authorization: `token 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`, // Replace with your token
+      authorization: `token ${process.env.GITHUB_PERSONAL_TOKEN}`, // Replace with your token
     },
   });
 
