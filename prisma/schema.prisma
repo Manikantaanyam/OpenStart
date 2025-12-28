@@ -18,10 +18,33 @@ datasource db {
 model Project{
   id Int @id @default(autoincrement())
   display_name String
-  full_name String
+  full_name String @unique
   description String
   avatar_url String
   stars Int
   techStack String[]
   active DateTime
+  issues Issue[]
+}
+
+
+
+
+model Issue{
+  id Int @id @default(autoincrement())
+  github_id String @unique
+  issue_title String
+  issue_number Int
+  issue_labels String[]
+  issue_time DateTime
+  state State @default(OPEN)
+
+  project Project  @relation(fields: [project_full_name], references: [full_name])
+  project_full_name String
+}
+
+
+enum State {
+  OPEN
+  CLOSED
 }

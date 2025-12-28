@@ -17,7 +17,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <div className="max-w-7xl p-5">
+    <div className="max-w-7xl p-5 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {projects.map((r) => (
           <ProjectCard repo={r} key={r.id} />

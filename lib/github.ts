@@ -35,3 +35,6 @@ export default async function fetchInfoOfAllRepos(repoList: string[]) {
   // Convert the object back into a clean array for easier looping
   return Object.values(response).filter(Boolean);
 }
+
+
+

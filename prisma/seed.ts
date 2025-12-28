@@ -1,4 +1,5 @@
 import fetchInfoOfAllRepos from "@/lib/github";
+import fetchAllIssues from "@/lib/github-issues";
 import prisma from "@/lib/prisma";
 import { repos } from "@/repos";
 
@@ -24,6 +25,7 @@ async function main() {
         },
       });
     }
+
     console.log("✅ Database seeded successfully!");
   } catch (error) {
     console.error("❌ Seeding failed:", error);
@@ -33,4 +35,4 @@ async function main() {
   }
 }
 
-main();
+fetchAllIssues();
