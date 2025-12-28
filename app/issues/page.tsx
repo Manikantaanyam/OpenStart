@@ -7,11 +7,12 @@ import { getIssues } from "../actions/issues";
 export default function Issues() {
   const [filter, setFilter] = useState("All");
   const [issues, setIssues] = useState([]);
+
   const categories = [
     "All",
     "Help Wanted",
     "Good First Issue",
-    "Bug",
+    "bug",
     "documentation",
     "UI/UX",
     "refactor",
@@ -19,12 +20,11 @@ export default function Issues() {
 
   useEffect(() => {
     async function loadIssues() {
-      const result = await getIssues();
+      const result = await getIssues(filter);
       setIssues(result);
     }
-
     loadIssues();
-  }, []);
+  }, [filter]);
 
   console.log("issues", issues);
 
@@ -75,8 +75,8 @@ export default function Issues() {
       {/* Issues list */}
       <div className="bg-white rounded-[2.5rem] p-2 shadow-sm border border-stone-100 min-h-150 transition-colors">
         <div className="space-y-1">
-          {issues.slice(0, 9).map((i) => (
-            <div className="group p-6 rounded-[2rem] hover:bg-[#FDFBF7] border border-transparent hover:border-stone-100 transition-all cursor-pointer flex flex-col md:flex-row gap-6 items-start md:items-center">
+          {issues.map((i) => (
+            <div className="group p-6 rounded-4xl hover:bg-[#FDFBF7] border border-transparent hover:border-stone-100 transition-all cursor-pointer flex flex-col md:flex-row gap-6 items-start md:items-center">
               {/* Icon Box */}
               <div></div>
 
